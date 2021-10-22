@@ -1,18 +1,15 @@
 #include <iostream>
-#include "funcs.h"
+#include <fstream>
+
+int countChar(std::string line, char c);
 
 int main() {
 	int count = 0;
 	std::string line;
 	int a = 0;	
-//	std::cout << addTabs("Hello", 2);
 	
-	//std::string t = "\t";
-	//t += "yasfd";
-	//std::cout << t;
-		
-	while(std::cin) {
-		std::getline(std::cin, line);
+	std::ifstream file("bad-code2.cpp");
+	while(std::getline(file, line)) {
 		if(countChar(line, '}') == 1 ) {
 			a = count - 1;
 		} else {
@@ -28,9 +25,20 @@ int main() {
 		count -= countChar(line, '}');
 
 	}	
-
+	file.close();
 
 
 
 	return 0;
 }
+
+int countChar(std::string line, char c) {
+    int count = 0;
+    for(int i = 0; i < line.length(); i++) {
+        if(line[i] == c) {
+            count++;
+        }
+    }
+    return count;
+}
+

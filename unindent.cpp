@@ -1,17 +1,22 @@
 #include <iostream>
 #include <cctype>
-
+#include <fstream>
 
 std::string removeLeadingSpaces(std::string line);
 
 int main() {
 	std::string line;
-
-	while(std::cin) {
-		std::getline(std::cin, line);
-		std::cout << removeLeadingSpaces(line) << std::endl;	
+	std::ifstream file("bad-code.cpp");
+    if(file.fail()) {
+		std::cerr<<"Error reading file\n";
+		exit(1);
 	}
 
+	while(std::getline(file, line)) {
+		std::cout << removeLeadingSpaces(line) << std::endl;	
+	}
+	
+	file.close();
 	return 0;
 }
 

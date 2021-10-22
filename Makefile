@@ -1,27 +1,25 @@
-main: main.o funcs.o
-	g++ -o main main.o funcs.o
+main: main.o 
+	g++ -o main main.o 
 
 
-indent: indent.o funcs.o
-	g++ -o indent indent.o funcs.o
+indent: indent.o 
+	g++ -o indent indent.o 
 
 
-unindent: unindent.o funcs.o
-	g++ -o unindent unindent.o funcs.o
+unindent: unindent.o 
+	g++ -o unindent unindent.o 
 
-indent.o: indent.cpp funcs.h
+indent.o: indent.cpp 
 	g++ -c indent.cpp
 
-unindent.o: unindent.cpp funcs.h
+unindent.o: unindent.cpp 
 	g++ -c unindent.cpp
 
-main.o: main.cpp funcs.h
+main.o: main.cpp
 	g++ -c main.cpp
 
-funcs.o: funcs.cpp
-	g++ -c funcs.cpp
 
 
 clean:
-	rm main.o funcs.o
+	rm main.o unindent.o indent.o
 
