@@ -6,7 +6,7 @@
 
 * GitHub username: JonathanDog
 
-* Notes:
+* Notes: Main target does not do anything. indent.cpp uses bad-code2.cpp and unindent uses bad-code.cpp
 
 
   
